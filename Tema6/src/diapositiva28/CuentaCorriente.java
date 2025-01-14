@@ -1,11 +1,15 @@
 package diapositiva28;
 
+import diapositiva47.Gestor;
+
 public class CuentaCorriente {
 	
 	//Atributos
 	String dni;
-	String nombre;
-	double saldo;
+	public String nombre;
+	private double saldo;
+	private static String nombreDelBanco;
+	Gestor gestor;
 	
 	//Constructores
 	public CuentaCorriente(String dni, String nombre, double saldo) {
@@ -36,6 +40,20 @@ public class CuentaCorriente {
 		this.saldo = 0.0;
 	}
 	
+	//Get/Set
+	public static void setNombreDelBanco(String nombreBancoNuevo) {
+		if(nombreBancoNuevo.length()>3) {
+			nombreDelBanco = nombreBancoNuevo;
+		}
+	}
+	public static String getNombreDelBanco() {
+		return nombreDelBanco;
+	}
+	
+	public void setGestor() {
+		
+	}
+	
 	//Métodos
 	void ingresarDinero(double ingreso) {
 		if(ingreso < 0) {
@@ -56,5 +74,6 @@ public class CuentaCorriente {
 		System.out.println("DNI: " + this.dni);
 		System.out.println("Saldo: " + this.saldo);
 	}
+	
 	
 }
