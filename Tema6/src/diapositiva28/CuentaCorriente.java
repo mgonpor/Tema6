@@ -9,9 +9,25 @@ public class CuentaCorriente {
 	public String nombre;
 	private double saldo;
 	private static String nombreDelBanco;
-	Gestor gestor;
+	private Gestor gestor;
 	
 	//Constructores
+	public CuentaCorriente(String dni, String nombre, double saldo, Gestor gestor) {
+		if(dni==null || dni.length() != 9) {
+			throw new IllegalArgumentException("El DNI debe tener 9 carácteres");
+		}
+		if(nombre == null || nombre.isBlank()) {
+			throw new IllegalArgumentException("El nombre no puede ser vacío, ni en blanco, ni nulo");
+		}
+		if(saldo < 0) {
+			throw new IllegalArgumentException("El saldo inicial debe ser positivo");
+		}
+		
+		this.dni = dni;
+		this.nombre = nombre;
+		this.saldo = saldo;
+		this.gestor = gestor;
+	}
 	public CuentaCorriente(String dni, String nombre, double saldo) {
 		if(dni==null || dni.length() != 9) {
 			throw new IllegalArgumentException("El DNI debe tener 9 carácteres");
@@ -50,8 +66,11 @@ public class CuentaCorriente {
 		return nombreDelBanco;
 	}
 	
-	public void setGestor() {
-		
+	public void setGestor(Gestor gestor) {
+		this.gestor = gestor;
+	}
+	public Gestor getGestor() {
+		return gestor;
 	}
 	
 	//Métodos
@@ -62,6 +81,7 @@ public class CuentaCorriente {
 		
 		this.saldo += ingreso;
 	}
+	
 	void retirarDinero(double retirada) {
 		if(retirada > this.saldo) {
 			throw new IllegalArgumentException("No puedes retirar más dinero del que hay");
@@ -69,10 +89,15 @@ public class CuentaCorriente {
 		
 		this.saldo -= retirada;
 	}
+	
 	void mostrarInformacion() {
 		System.out.println("\nDueño: " + this.nombre);
 		System.out.println("DNI: " + this.dni);
 		System.out.println("Saldo: " + this.saldo);
+		if(this.gestor != null) {
+			System.out.println("Gestor: " + this.gestor.getNombre());
+		}
+		System.out.println("Banco: " + CuentaCorriente.nombreDelBanco);
 	}
 	
 	

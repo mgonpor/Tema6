@@ -27,7 +27,7 @@ public class Gestor {
 		if(nombre == null || nombre.isBlank()) {
 			throw new IllegalArgumentException("El nombre no puede ser vacío, ni en blanco, ni nulo");
 		}
-		if(telefono.length() != 9 || telefono.matches("[0-9]*")) {
+		if(telefono.length() != 9 || !telefono.matches("[0-9]*")) {
 			throw new IllegalArgumentException("Introduce un teléfono válido");
 		}
 		
@@ -51,7 +51,7 @@ public class Gestor {
 	}
 	
 	public void setImporteMaximo(int importeMaximo) {
-		if(importeMaximo > 1) {
+		if(importeMaximo > 100) {
 			this.importeMaximo = importeMaximo;
 		}
 	}
