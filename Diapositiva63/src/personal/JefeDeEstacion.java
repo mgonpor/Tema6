@@ -1,14 +1,14 @@
 package personal;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class JefeDeEstacion {
 
 	private String nombre;
 	private String dni;
-	private SimpleDateFormat fechaNombramiento;
+	private LocalDate fechaNombramiento;
 	
-	public JefeDeEstacion(String nombre, String dni, SimpleDateFormat fechaNombramiento) {
+	public JefeDeEstacion(String nombre, String dni, LocalDate fechaNombramiento) {
 		setNombre(nombre);
 		setDni(dni);
 		setFechaNombramiento(fechaNombramiento);
@@ -17,21 +17,21 @@ public class JefeDeEstacion {
 	public String getNombre() {
 		return nombre;
 	}
-	public void setNombre(String nombre) {
+	private void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
 	public String getDni() {
 		return dni;
 	}
-	public void setDni(String dni) {
+	private void setDni(String dni) {
 		this.dni = dni;
 	}
 	
-	public SimpleDateFormat getFechaNombramiento() {
+	public LocalDate getFechaNombramiento() {
 		return fechaNombramiento;
 	}
-	public void setFechaNombramiento(SimpleDateFormat fechaNombramiento) {
+	private void setFechaNombramiento(LocalDate fechaNombramiento) {
 		this.fechaNombramiento = fechaNombramiento;
 	}
 	

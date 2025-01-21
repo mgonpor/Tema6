@@ -7,8 +7,10 @@ public class Vagon {
 	private double cargaActual;
 	private Mercancia mercancia;
 	
-	public Vagon(int numId, double cargaMaximaKg, double cargaActual, Mercancia mercancia) {
-		setNumId(numId);
+	private static int ultimoId = 1;
+	
+	public Vagon(double cargaMaximaKg, double cargaActual, String mercancia) {
+		this.numId = ultimoId++;
 		setCargaMaximaKg(cargaMaximaKg);
 		setCargaActual(cargaActual);
 		setMercancia(mercancia);
@@ -17,14 +19,14 @@ public class Vagon {
 	public int getNumId() {
 		return numId;
 	}
-	public void setNumId(int numId) {
-		this.numId = numId;
-	}
 	
 	public double getCargaMaximaKg() {
 		return cargaMaximaKg;
 	}
-	public void setCargaMaximaKg(double cargaMaximaKg) {
+	private void setCargaMaximaKg(double cargaMaximaKg) {
+		if(cargaMaximaKg < 0) {
+			throw new IllegalArgumentException("La carga máxima debe ser mayor de 0");
+		}
 		this.cargaMaximaKg = cargaMaximaKg;
 	}
 	
@@ -32,16 +34,18 @@ public class Vagon {
 		return cargaActual;
 	}
 	public void setCargaActual(double cargaActual) {
+		if(cargaActual > this.cargaMaximaKg || cargaActual<0) {
+			throw new IllegalArgumentException("No puede llevar más carga de la máxima");
+		}
 		this.cargaActual = cargaActual;
 	}
 	
 	public Mercancia getMercancia() {
 		return mercancia;
 	}
-	public void setMercancia(Mercancia mercancia) {
-		this.mercancia = mercancia;
+	public void setMercancia(String mercancia) {
+		this.mercancia = Mercancia.valueOf(mercancia);
 	}
-	
 	
 	
 }

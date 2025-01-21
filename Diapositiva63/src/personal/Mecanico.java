@@ -6,7 +6,7 @@ public class Mecanico {
 	private String telefonoUrgencia;
 	private Especialidad especialidad;
 	
-	public Mecanico(String nombre, String telefonoUrgencia, Especialidad especialidad) {
+	public Mecanico(String nombre, String telefonoUrgencia, String especialidad) {
 		setNombre(nombre);;
 		setTelefonoUrgencia(telefonoUrgencia);;
 		setEspecialidad(especialidad);
@@ -15,7 +15,7 @@ public class Mecanico {
 	public String getNombre() {
 		return nombre;
 	}
-	public void setNombre(String nombre) {
+	private void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
@@ -32,8 +32,8 @@ public class Mecanico {
 	public Especialidad getEspecialidad() {
 		return especialidad;
 	}
-	public void setEspecialidad(Especialidad especialidad) {
-		this.especialidad = especialidad;
+	public void setEspecialidad(String especialidad) {
+		this.especialidad = Especialidad.valueOf(especialidad);
 	}
 	
 }

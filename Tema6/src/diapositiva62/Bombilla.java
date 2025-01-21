@@ -28,6 +28,7 @@ public class Bombilla {
 	void pulsarInterruptor() {
 		estadoBombilla = !estadoBombilla;
 	}
+	
 	void mostrarEstado() {
 		if(estadoBombilla && interruptorGeneral) {
 			System.out.println("Encendida");

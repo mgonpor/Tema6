@@ -7,24 +7,24 @@ public class Maquinista {
 	private double sueldo;
 	private Rango rango;
 	
-	public Maquinista(String nombre, String dni, double sueldo, Rango rango) {
+	public Maquinista(String nombre, String dni, double sueldo, String rango) {
 		setNombre(nombre);
 		setDni(dni);
 		setSueldo(sueldo);
 		setRango(rango);
-	}	
+	}
 
 	public String getNombre() {
 		return nombre;
 	}
-	public void setNombre(String nombre) {
+	private void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
 	public String getDni() {
 		return dni;
 	}
-	public void setDni(String dni) {
+	private void setDni(String dni) {
 		this.dni = dni;
 	}
 	
@@ -32,17 +32,20 @@ public class Maquinista {
 		return sueldo;
 	}
 	public void setSueldo(double sueldo) {
+		if(sueldo < 1080) {
+			throw new IllegalArgumentException("El sueldo no puede ser menor que el salario mínimo (1080)");
+		}
 		this.sueldo = sueldo;
 	}
 	
 	public Rango getRango() {
 		return rango;
 	}
-	public void setRango(Rango rango) {
+	public void setRango(String rango) {
 		if(rango == null) {
 			this.rango = Rango.RASO;
 		}else {
-			this.rango = rango;
+			this.rango = Rango.valueOf(rango);
 		}
 	}
 	

@@ -21,18 +21,18 @@ public class Pizza {
 		this.tamanyo = Tamanyo.valueOf(tamanyo);
 	}
 	public String getTamanyo() {
-		return this.tamanyo.toString();
+		return tamanyo.toString();
 	}
 	
 	public void setTipo(String tipo) {
 		this.tipo = Tipo.valueOf(tipo);
 	}
 	public String getTipo() {
-		return this.tipo.toString();
+		return tipo.toString();
 	}
 	
 	public String getEstado() {
-		return this.estado.toString();
+		return estado.toString();
 	}
 
 	public static int getPedidas() {
