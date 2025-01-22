@@ -23,7 +23,7 @@ public class Mecanico {
 		return telefonoUrgencia;
 	}
 	public void setTelefonoUrgencia(String telefonoUrgencia) {
-		if(telefonoUrgencia.matches("*.[0-9].*")) {
+		if(telefonoUrgencia.matches("[0-9]")) {
 			throw new IllegalArgumentException("El teléfono debe tener solo números");
 		}
 		this.telefonoUrgencia = telefonoUrgencia;

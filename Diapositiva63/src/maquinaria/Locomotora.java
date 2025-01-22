@@ -8,12 +8,12 @@ public class Locomotora {
 
 	private String matricula;
 	private double potenciaMotor;
-	private short anyoFabricacion;
+	private int anyoFabricacion;
 	private Mecanico mecanico;
 	
 	private static int ultimaMatricula = 1;
 	
-	public Locomotora(double potenciaMotor, short anyoFabricacion, Mecanico mecanico) {
+	public Locomotora(double potenciaMotor, int anyoFabricacion, Mecanico mecanico) {
 		setMatricula();
 		setPotenciaMotor(potenciaMotor);
 		setAnyoFabricacion(anyoFabricacion);
@@ -38,10 +38,10 @@ public class Locomotora {
 		this.potenciaMotor = potenciaMotor;
 	}
 	
-	public short getAnyoFabricacion() {
+	public int getAnyoFabricacion() {
 		return anyoFabricacion;
 	}
-	private void setAnyoFabricacion(short anyoFabricacion) {
+	private void setAnyoFabricacion(int anyoFabricacion) {
 		if(anyoFabricacion < 1980 || anyoFabricacion > LocalDate.now().getYear()) {
 			throw new IllegalArgumentException("El año debe estar entre 1980 y este año");
 		}

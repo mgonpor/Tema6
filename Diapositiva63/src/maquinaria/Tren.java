@@ -24,7 +24,7 @@ public class Tren {
 	}
 	
 	public List<Vagon> getListaVagones() {
-		System.out.printf("Tamaño actual: %d", this.listaVagones.size());
+		System.out.printf("\nTamaño actual: %d", this.listaVagones.size());
 		return listaVagones;
 	}
 	public void setListaVagones(List<Vagon> listaVagones) {
@@ -45,27 +45,34 @@ public class Tren {
 		if(vagon == null) {
 			throw new IllegalArgumentException("El vagón no puede ser nulo");
 		}
-		else if(listaVagones.size() >= 5) {
+		else if(this.listaVagones.size() >= 5) {
 			throw new IllegalArgumentException("Ya hay 5 vagones");
 		}
-		for(Vagon v : listaVagones) {
+		for(Vagon v : this.listaVagones) {
 			if(v.getNumId() == vagon.getNumId()) {
 				throw new IllegalArgumentException("Este vagón ya está en el tren");
 			}
 		}
-		listaVagones.add(vagon);
+		this.listaVagones.add(vagon);
 	}
+	
 	public void retirarVagon(Vagon vagon) {
-		if(!listaVagones.contains(vagon)) {
+		boolean esta = false;
+		for(Vagon v : this.listaVagones) {
+			if(v.getNumId() == vagon.getNumId()) {
+				esta = true;
+			}
+		}
+		if(!esta) {
 			throw new IllegalArgumentException("Ese vagón no está en este tren");
 		}
-		listaVagones.remove(vagon);
+		this.listaVagones.remove(vagon);
 	}
 	public void retirarVagon(int i) {
-		if(i >= listaVagones.size()) {
-			throw new IllegalArgumentException("Ese puesto de vagón no existe aún");
+		if(i >= this.listaVagones.size()) {
+			throw new IndexOutOfBoundsException("Ese puesto de vagón no existe aún");
 		}
-		listaVagones.remove(i);
+		this.listaVagones.remove(i);
 	}
 	
 	
