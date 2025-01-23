@@ -57,6 +57,9 @@ public class Tren {
 	}
 	
 	public void retirarVagon(Vagon vagon) {
+		if(vagon == null) {
+			throw new IllegalArgumentException("El vagon no puede ser nulo");
+		}
 		boolean esta = false;
 		for(Vagon v : this.listaVagones) {
 			if(v.getNumId() == vagon.getNumId()) {
