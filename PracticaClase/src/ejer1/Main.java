@@ -7,6 +7,10 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+		menu();
+	}
+	
+	public static void menu() {
 		Scanner input = new Scanner(System.in);
 		boolean dentroDelMenu = true;
 		List<Tarea> tareas = new ArrayList<Tarea>();
@@ -97,5 +101,7 @@ public class Main {
 		}
 		input.close();
 	}
+	
+	
 
 }
