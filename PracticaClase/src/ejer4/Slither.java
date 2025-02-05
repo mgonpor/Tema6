@@ -16,8 +16,8 @@ public class Slither {
 		this.tamanyo += Math.abs(cantidad) - 1;
 	}
 	
-	void comerComida(String comida) {
-		switch (Comida.valueOf(comida)) {
+	public void comer(String comida) {
+		switch (Comida.valueOf(comida.toUpperCase())) {
 			case ROJO: 
 				subirTamanyo(2);
 				break;
@@ -28,13 +28,13 @@ public class Slither {
 				subirTamanyo(10);
 				break;
 			default:
-				throw new IllegalArgumentException("No es una comida");
+				System.out.print("\nNo es una comida");
 		}
 	}
 	
-	void seCruza(Slither slither) {
+	public void comer(Slither slither) {
 		if(slither == null) {
-			throw new IllegalArgumentException("No hay slither que comerse");
+			System.out.print("\nNo hay slither que comerse");
 		}
 		else if(slither.tamanyo < this.tamanyo) {
 			this.subirTamanyo(slither.tamanyo);
