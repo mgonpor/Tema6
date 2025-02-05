@@ -7,6 +7,15 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
+		
+		Coche c1 = new Coche();
+		Coche c2 = new Coche(20000);
+		Coche c3 = new Coche(90000);
+		
+		Bicicleta b1 = new Bicicleta(160);
+		Bicicleta b2 = new Bicicleta(500);
+		Bicicleta b3 = new Bicicleta();
+		
 		menu(sc);
 
 	}

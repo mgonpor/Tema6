@@ -1,11 +1,12 @@
 package ejer2Vehiculo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Vehiculo {
 	
 	private static double kilometrosTotales;
-	static List<Vehiculo> vehiculosCreados;
+	static List<Coche,Bicicleta> vehiculosCreados = new ArrayList<Coche,Bicicleta>();
 	private static int ultimoId = 1;
 	
 	private double kilometrosRecorridos;
@@ -31,6 +32,10 @@ public abstract class Vehiculo {
 	
 	public String toString() {
 		return "\nId: "+id+", Kilometraje: " + kilometrosRecorridos;
+	}
+	
+	public void addVehiculo() {
+		
 	}
 	
 	public static void actualizarKilometrosTotales() {
