@@ -74,7 +74,7 @@ public class Main {
 		do {
 			System.out.print("\nElige: ");
 			opcion = sc.nextInt();
-			for(int i=0; i<Vehiculo.vehiculosCreados.size(); i++) {
+			for(int i=0; i<Coche.listaCoches.size(); i++) {
 				if(Vehiculo.vehiculosCreados.get(i) instanceof Coche && Vehiculo.vehiculosCreados.get(i).getId() == opcion) {
 					result = (Coche) Vehiculo.vehiculosCreados.get(i);
 					result.toString();

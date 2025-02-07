@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class Vehiculo {
 	
 	private static double kilometrosTotales;
-	static List<Coche,Bicicleta> vehiculosCreados = new ArrayList<Coche,Bicicleta>();
+	static List<Vehiculo> vehiculosCreados = new ArrayList<Vehiculo>();
 	private static int ultimoId = 1;
 	
 	private double kilometrosRecorridos;
